@@ -68,3 +68,33 @@ export interface AnswerKeyItem {
   questionNumber: number;
   answer: string;
 }
+
+export interface CreateAssignmentFormData {
+  file: File | null;
+  dueDate: string;
+  questionTypes: QuestionTypeConfig[];
+  additionalInfo: string;
+}
+
+export interface User {
+  _id: string;
+  name: string;
+  email: string;
+  schoolName: string;
+  schoolLocation: string;
+  avatar?: string;
+  role: "teacher" | "admin";
+}
+
+export interface ApiResponse<T> {
+  success: boolean;
+  data: T;
+  message?: string;
+}
+
+export interface NavItem {
+  label: string;
+  href: string;
+  icon: string;
+  badge?: number;
+}
