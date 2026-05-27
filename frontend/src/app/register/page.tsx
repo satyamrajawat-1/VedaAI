@@ -85,7 +85,7 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen flex">
-      {/* Left Panel — Brand */}
+     
       <div className="hidden lg:flex lg:w-[45%] relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900" />
         <div className="absolute inset-0 opacity-20">
@@ -94,7 +94,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="relative z-10 flex flex-col justify-between p-12 w-full">
-          {/* Logo */}
+          
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-brand-primary shadow-lg shadow-brand-primary/30">
               <span className="text-white font-bold text-xl">V</span>
@@ -104,7 +104,7 @@ export default function RegisterPage() {
             </span>
           </div>
 
-          {/* Hero */}
+          
           <div className="max-w-md">
             <h1 className="text-4xl font-bold text-white leading-tight mb-4">
               Start Creating
@@ -118,7 +118,7 @@ export default function RegisterPage() {
               assignments, save time, and focus on what matters — teaching.
             </p>
 
-            {/* Features */}
+            
             <div className="mt-8 space-y-3">
               {[
                 "AI-powered question generation",
@@ -136,17 +136,17 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Bottom */}
+          
           <p className="text-sm text-neutral-600">
             © 2026 VedaAI. All rights reserved.
           </p>
         </div>
       </div>
 
-      {/* Right Panel — Form */}
+      
       <div className="flex-1 flex items-center justify-center p-6 bg-white overflow-y-auto">
         <div className="w-full max-w-md py-8 page-enter">
-          {/* Mobile logo */}
+         
           <div className="flex lg:hidden items-center gap-2.5 mb-8">
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-primary">
               <span className="text-white font-bold text-lg">V</span>
@@ -161,7 +161,7 @@ export default function RegisterPage() {
             Get started with VedaAI — it&apos;s free
           </p>
 
-          {/* Error */}
+        
           {error && (
             <div className="mb-5 p-3.5 rounded-xl bg-red-50 border border-red-200">
               <p className="text-sm text-red-600">{error}</p>
@@ -169,7 +169,7 @@ export default function RegisterPage() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Name */}
+           
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
                 Full Name
@@ -186,7 +186,7 @@ export default function RegisterPage() {
                     setName(e.target.value);
                     clearField("name");
                   }}
-                  placeholder="John Doe"
+                  placeholder="Name"
                   className={inputClass(!!formErrors.name)}
                 />
               </div>
@@ -195,7 +195,7 @@ export default function RegisterPage() {
               )}
             </div>
 
-            {/* Email */}
+           
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
                 Email Address
@@ -221,7 +221,7 @@ export default function RegisterPage() {
               )}
             </div>
 
-            {/* Password Row */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-neutral-700 mb-1.5">
@@ -288,7 +288,7 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            {/* School Name */}
+           
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
                 School Name
@@ -316,7 +316,7 @@ export default function RegisterPage() {
               )}
             </div>
 
-            {/* School Location */}
+           
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
                 School Location
@@ -344,7 +344,7 @@ export default function RegisterPage() {
               )}
             </div>
 
-            {/* Submit */}
+            
             <button
               type="submit"
               disabled={isLoading}

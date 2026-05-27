@@ -6,13 +6,11 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// @desc    Get all assignments for current user
-// @route   GET /api/v1/assignments
 export const getAssignments = async (req, res) => {
   try {
     const assignments = await Assignment.find({ createdBy: req.user._id })
       .sort({ createdAt: -1 })
-      .select("-generatedPaper"); // Don't send full paper in list view
+      .select("-generatedPaper"); 
 
     res.status(200).json({
       success: true,
@@ -26,8 +24,7 @@ export const getAssignments = async (req, res) => {
   }
 };
 
-// @desc    Get single assignment with generated paper
-// @route   GET /api/v1/assignments/:id
+
 export const getAssignment = async (req, res) => {
   try {
     const assignment = await Assignment.findOne({
@@ -54,19 +51,18 @@ export const getAssignment = async (req, res) => {
   }
 };
 
-// @desc    Create assignment + generate question paper with AI
-// @route   POST /api/v1/assignments
+
 export const createAssignment = async (req, res) => {
   try {
     const { dueDate, questionTypes, additionalInfo } = req.body;
 
-    // Parse questionTypes if it's a string (from FormData)
+
     const parsedQuestionTypes =
       typeof questionTypes === "string"
         ? JSON.parse(questionTypes)
         : questionTypes;
 
-    // Determine material path
+
     let materialPath = "";
     let materialOriginalName = "";
     if (req.file) {
@@ -74,7 +70,7 @@ export const createAssignment = async (req, res) => {
       materialOriginalName = req.file.originalname;
     }
 
-    // Generate question paper with Gemini AI
+  
     let generatedPaper = null;
     try {
       generatedPaper = await generateQuestionPaper({
@@ -85,16 +81,16 @@ export const createAssignment = async (req, res) => {
       });
     } catch (aiError) {
       console.error("AI generation error:", aiError.message);
-      // Still create the assignment even if AI fails
+      
     }
 
-    // Determine title from generated paper or default
+   
     const title =
       generatedPaper?.subject
         ? `Quiz on ${generatedPaper.subject}`
         : "Untitled Assignment";
 
-    // Create assignment
+   
     const assignment = await Assignment.create({
       title,
       dueDate: new Date(dueDate),
@@ -118,8 +114,7 @@ export const createAssignment = async (req, res) => {
   }
 };
 
-// @desc    Update assignment
-// @route   PUT /api/v1/assignments/:id
+
 export const updateAssignment = async (req, res) => {
   try {
     const assignment = await Assignment.findOneAndUpdate(
@@ -147,8 +142,7 @@ export const updateAssignment = async (req, res) => {
   }
 };
 
-// @desc    Delete assignment
-// @route   DELETE /api/v1/assignments/:id
+
 export const deleteAssignment = async (req, res) => {
   try {
     const assignment = await Assignment.findOneAndDelete({
@@ -175,8 +169,7 @@ export const deleteAssignment = async (req, res) => {
   }
 };
 
-// @desc    Re-generate question paper for existing assignment
-// @route   POST /api/v1/assignments/:id/generate
+
 export const regenerateAssignment = async (req, res) => {
   try {
     const assignment = await Assignment.findOne({
@@ -191,12 +184,12 @@ export const regenerateAssignment = async (req, res) => {
       });
     }
 
-    // Determine material path
+    
     const materialPath = assignment.materialUrl
       ? path.join(__dirname, "../../public", assignment.materialUrl)
       : "";
 
-    // Re-generate with Gemini
+  
     const generatedPaper = await generateQuestionPaper({
       materialPath,
       questionTypes: assignment.questionTypes,

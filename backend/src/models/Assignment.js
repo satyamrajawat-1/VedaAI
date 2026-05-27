@@ -144,7 +144,7 @@ const assignmentSchema = new mongoose.Schema(
   }
 );
 
-// Calculate totals before saving
+
 assignmentSchema.pre("save", function () {
   if (this.questionTypes && this.questionTypes.length > 0) {
     this.totalQuestions = this.questionTypes.reduce(

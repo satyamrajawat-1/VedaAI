@@ -17,18 +17,18 @@ export default function DashboardLayout({
         {/* Sidebar */}
         <Sidebar />
 
-        {/* Main content area */}
+        
         <div className="md:ml-[var(--sidebar-width)] flex flex-col min-h-screen">
           {/* Topbar */}
           <Topbar showBack breadcrumb="Assignment" />
 
-          {/* Page content */}
+          
           <main className="flex-1 pb-[var(--mobile-nav-height)] md:pb-0">
             {children}
           </main>
         </div>
 
-        {/* Mobile bottom nav */}
+        
         <MobileNav />
       </div>
     </AuthGuard>

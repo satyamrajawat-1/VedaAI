@@ -12,7 +12,7 @@ import upload from "../middlewares/upload.js";
 
 const router = Router();
 
-// All routes require authentication
+
 router.use(protect);
 
 router.get("/", getAssignments);

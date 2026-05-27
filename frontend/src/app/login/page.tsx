@@ -43,7 +43,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex">
-      {/* Left Panel — Brand */}
+      
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900" />
         <div className="absolute inset-0 opacity-20">
@@ -52,7 +52,7 @@ export default function LoginPage() {
         </div>
 
         <div className="relative z-10 flex flex-col justify-between p-12 w-full">
-          {/* Logo */}
+          
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-brand-primary shadow-lg shadow-brand-primary/30">
               <span className="text-white font-bold text-xl">V</span>
@@ -62,7 +62,7 @@ export default function LoginPage() {
             </span>
           </div>
 
-          {/* Hero text */}
+          
           <div className="max-w-md">
             <h1 className="text-4xl font-bold text-white leading-tight mb-4">
               Create Smarter
@@ -77,7 +77,7 @@ export default function LoginPage() {
             </p>
           </div>
 
-          {/* Bottom quote */}
+          
           <div className="flex items-center gap-4">
             <div className="flex -space-x-2">
               {["bg-blue-500", "bg-emerald-500", "bg-amber-500"].map(
@@ -99,10 +99,10 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Right Panel — Form */}
+      
       <div className="flex-1 flex items-center justify-center p-6 bg-white">
         <div className="w-full max-w-md page-enter">
-          {/* Mobile logo */}
+         
           <div className="flex lg:hidden items-center gap-2.5 mb-10">
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-primary">
               <span className="text-white font-bold text-lg">V</span>
@@ -117,7 +117,7 @@ export default function LoginPage() {
             Sign in to your account to continue
           </p>
 
-          {/* Error */}
+          
           {error && (
             <div className="mb-5 p-3.5 rounded-xl bg-red-50 border border-red-200">
               <p className="text-sm text-red-600">{error}</p>
@@ -125,7 +125,7 @@ export default function LoginPage() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Email */}
+            
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
                 Email Address
@@ -156,7 +156,7 @@ export default function LoginPage() {
               )}
             </div>
 
-            {/* Password */}
+         
             <div>
               <label className="block text-sm font-medium text-neutral-700 mb-1.5">
                 Password
@@ -196,7 +196,7 @@ export default function LoginPage() {
               )}
             </div>
 
-            {/* Submit */}
+           
             <button
               type="submit"
               disabled={isLoading}

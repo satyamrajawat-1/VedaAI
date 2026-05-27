@@ -1,13 +1,12 @@
 import User from "../models/User.js";
 import { generateToken } from "../middlewares/auth.js";
 
-// @desc    Register a new user
-// @route   POST /api/v1/auth/register
+
 export const register = async (req, res) => {
   try {
     const { name, email, password, schoolName, schoolLocation } = req.body;
 
-    // Check if user already exists
+    
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({
@@ -16,7 +15,7 @@ export const register = async (req, res) => {
       });
     }
 
-    // Create user
+   
     const user = await User.create({
       name,
       email,
@@ -25,10 +24,10 @@ export const register = async (req, res) => {
       schoolLocation,
     });
 
-    // Generate token
+  
     const token = generateToken(user._id);
 
-    // Remove password from response
+    
     const userResponse = user.toObject();
     delete userResponse.password;
 
@@ -47,8 +46,7 @@ export const register = async (req, res) => {
   }
 };
 
-// @desc    Login user
-// @route   POST /api/v1/auth/login
+
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -60,7 +58,7 @@ export const login = async (req, res) => {
       });
     }
 
-    // Find user and include password
+    
     const user = await User.findOne({ email }).select("+password");
     if (!user) {
       return res.status(401).json({
@@ -69,7 +67,7 @@ export const login = async (req, res) => {
       });
     }
 
-    // Check password
+   
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
       return res.status(401).json({
@@ -78,10 +76,10 @@ export const login = async (req, res) => {
       });
     }
 
-    // Generate token
+    
     const token = generateToken(user._id);
 
-    // Remove password from response
+    
     const userResponse = user.toObject();
     delete userResponse.password;
 
@@ -100,8 +98,7 @@ export const login = async (req, res) => {
   }
 };
 
-// @desc    Get current user profile
-// @route   GET /api/v1/auth/profile
+
 export const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);

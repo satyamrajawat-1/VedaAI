@@ -21,7 +21,7 @@ export async function generateQuestionPaper({
 }) {
   const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-  // Build question types description
+  
   const questionTypesDesc = questionTypes
     .map(
       (qt) =>
@@ -92,7 +92,7 @@ Return ONLY the JSON object, no markdown formatting, no code blocks, no addition
   try {
     let result;
 
-    // If material file exists, include it in the prompt
+    
     if (materialPath && fs.existsSync(materialPath)) {
       const ext = path.extname(materialPath).toLowerCase();
       const mimeTypes = {
@@ -116,19 +116,19 @@ Return ONLY the JSON object, no markdown formatting, no code blocks, no addition
 
       result = await model.generateContent([prompt, filePart]);
     } else {
-      // No file — generate based on prompt alone
+     
       result = await model.generateContent(prompt);
     }
 
     const responseText = result.response.text();
 
-    // Clean up the response — remove markdown code blocks if present
+   
     let cleanedText = responseText
       .replace(/```json\n?/g, "")
       .replace(/```\n?/g, "")
       .trim();
 
-    // Parse the JSON
+   
     const paperData = JSON.parse(cleanedText);
 
     return paperData;
