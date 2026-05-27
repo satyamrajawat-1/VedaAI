@@ -4,6 +4,7 @@ import React from "react";
 import Sidebar from "@/components/layout/Sidebar";
 import Topbar from "@/components/layout/Topbar";
 import MobileNav from "@/components/layout/MobileNav";
+import AuthGuard from "@/components/auth/AuthGuard";
 
 export default function DashboardLayout({
   children,
@@ -11,23 +12,25 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-neutral-50">
-      
-      <Sidebar />
+    <AuthGuard>
+      <div className="min-h-screen bg-neutral-50">
+        {/* Sidebar */}
+        <Sidebar />
 
-      
-      <div className="md:ml-[var(--sidebar-width)] flex flex-col min-h-screen">
-        {/* Topbar */}
-        <Topbar showBack breadcrumb="Assignment" />
+        {/* Main content area */}
+        <div className="md:ml-[var(--sidebar-width)] flex flex-col min-h-screen">
+          {/* Topbar */}
+          <Topbar showBack breadcrumb="Assignment" />
 
-       
-        <main className="flex-1 pb-[var(--mobile-nav-height)] md:pb-0">
-          {children}
-        </main>
+          {/* Page content */}
+          <main className="flex-1 pb-[var(--mobile-nav-height)] md:pb-0">
+            {children}
+          </main>
+        </div>
+
+        {/* Mobile bottom nav */}
+        <MobileNav />
       </div>
-
-     
-      <MobileNav />
-    </div>
+    </AuthGuard>
   );
 }
