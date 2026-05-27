@@ -53,7 +53,7 @@ export default function CreateAssignmentPage() {
 
   return (
     <div className="p-4 md:p-6 lg:p-8 max-w-3xl mx-auto w-full page-enter">
-      
+      {/* Header */}
       <div className="mb-2">
         <h1 className="text-xl md:text-2xl font-bold text-neutral-900">
           Create Assignment
@@ -63,10 +63,10 @@ export default function CreateAssignmentPage() {
         </p>
       </div>
 
-     
+      
       <StepProgress currentStep={currentStep} totalSteps={totalSteps} />
 
-      
+     
       {error && (
         <div className="mb-4 p-4 rounded-xl bg-red-50 border border-red-200">
           <p className="text-sm text-red-600">{error}</p>
@@ -92,7 +92,7 @@ export default function CreateAssignmentPage() {
             onRemove={() => setFormFile(null)}
           />
 
-         
+        
           <DatePicker
             value={formData.dueDate}
             onChange={(val) => setFormDueDate(val)}
@@ -100,7 +100,7 @@ export default function CreateAssignmentPage() {
             min={new Date().toISOString().split("T")[0]}
           />
 
-         
+          
           <QuestionTypeSelector
             questionTypes={formData.questionTypes}
             onChange={(types) => setFormQuestionTypes(types)}
@@ -207,7 +207,7 @@ export default function CreateAssignmentPage() {
             )}
           </div>
 
-         
+      
           {isGenerating && (
             <div className="flex flex-col items-center gap-3 py-8">
               <Loader2
@@ -225,7 +225,7 @@ export default function CreateAssignmentPage() {
         </div>
       )}
 
-     
+      
       <div className="flex items-center justify-between mt-6">
         <Button
           variant="outline"

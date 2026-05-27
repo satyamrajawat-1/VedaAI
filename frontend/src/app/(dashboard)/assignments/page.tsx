@@ -50,20 +50,20 @@ export default function AssignmentsPage() {
         </div>
       )}
 
-      
+     
       {error && (
         <div className="mb-4 p-4 rounded-xl bg-red-50 border border-red-200">
           <p className="text-sm text-red-600">{error}</p>
         </div>
       )}
 
-     
+      
       {isEmpty && !error && <EmptyState />}
 
-   
+      
       {!isLoading && assignments.length > 0 && (
         <>
-       
+          
           <div className="mb-6">
             <h1 className="text-xl md:text-2xl font-bold text-neutral-900">
               Assignments
@@ -73,7 +73,7 @@ export default function AssignmentsPage() {
             </p>
           </div>
 
-         
+          
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-6">
             <button className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-neutral-200 bg-white text-sm font-medium text-neutral-700 hover:bg-neutral-50 transition-colors cursor-pointer">
               <Filter size={14} className="text-neutral-400" />
@@ -87,7 +87,7 @@ export default function AssignmentsPage() {
             />
           </div>
 
-        
+          
           {filteredAssignments.length === 0 && search && (
             <div className="text-center py-12">
               <p className="text-sm text-neutral-500">
@@ -96,7 +96,7 @@ export default function AssignmentsPage() {
             </div>
           )}
 
-         
+          
           {filteredAssignments.length > 0 && (
             <AssignmentGrid
               assignments={filteredAssignments}
@@ -105,7 +105,7 @@ export default function AssignmentsPage() {
             />
           )}
 
-         
+        
           <Link
             href="/assignments/create"
             className="fixed bottom-24 md:bottom-8 right-6 z-30 flex items-center gap-2 px-4 py-3 rounded-full bg-neutral-900 text-white text-sm font-medium shadow-lg hover:bg-neutral-800 transition-all duration-200 hover:shadow-xl active:scale-95"

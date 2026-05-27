@@ -9,7 +9,6 @@ import Button from "@/components/ui/Button";
 import { useAssignmentStore } from "@/store/assignmentStore";
 import type { GeneratedPaper } from "@/types";
 
-
 const fallbackPaper: GeneratedPaper = {
   schoolName: "Delhi Public School, Sector-4, Bokaro",
   subject: "English",
@@ -177,13 +176,13 @@ export default function AssignmentOutputPage() {
         </Button>
       </div>
 
-     
+      
       <QuestionPaper paper={paper} />
 
-     
+      
       <AnswerKey answers={paper.answerKey} />
 
-     
+      
       <div className="mt-8">
         <Button
           variant="ghost"

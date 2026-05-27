@@ -31,7 +31,7 @@ export default function Sidebar() {
 
   return (
     <aside className="hidden md:flex flex-col w-[var(--sidebar-width)] h-screen bg-sidebar-bg border-r border-sidebar-border fixed left-0 top-0 z-40">
-      
+     
       <div className="flex items-center gap-2.5 px-5 py-5">
         <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-brand-primary">
           <span className="text-white font-bold text-lg">V</span>
@@ -95,7 +95,7 @@ export default function Sidebar() {
         })}
       </nav>
 
-     
+      
       <div className="px-3 py-2">
         <Link
           href="/settings"
