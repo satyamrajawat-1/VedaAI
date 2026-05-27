@@ -166,7 +166,11 @@ export default function AssignmentOutputPage() {
         </p>
       </div>
 
+<<<<<<< HEAD
       
+=======
+     
+>>>>>>> ba2b6843efdeebb8130a7aa238a78e1675eae380
       <div className="mb-6">
         <Button
           variant="outline"
@@ -177,10 +181,17 @@ export default function AssignmentOutputPage() {
         </Button>
       </div>
 
+<<<<<<< HEAD
       
       <QuestionPaper paper={paper} />
 
       
+=======
+     
+      <QuestionPaper paper={paper} />
+
+     
+>>>>>>> ba2b6843efdeebb8130a7aa238a78e1675eae380
       <AnswerKey answers={paper.answerKey} />
 
      
