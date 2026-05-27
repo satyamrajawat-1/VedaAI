@@ -10,18 +10,19 @@ import { assignmentApi, authApi } from "@/lib/api";
 import { generateId } from "@/lib/utils";
 
 
+
 interface AssignmentState {
-  
+
   assignments: Assignment[];
   currentAssignment: Assignment | null;
   generatedPaper: GeneratedPaper | null;
 
-
+  
   isLoading: boolean;
   isGenerating: boolean;
   error: string | null;
 
-  
+ 
   formData: CreateAssignmentFormData;
 
   
@@ -37,7 +38,7 @@ interface AssignmentState {
   setFormAdditionalInfo: (info: string) => void;
   resetForm: () => void;
 
-  
+ 
   setGeneratedPaper: (paper: GeneratedPaper | null) => void;
   clearError: () => void;
 }
@@ -215,7 +216,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   isLoading: false,
   error: null,
 
-
+  
   initAuth: () => {
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("vedaai_token");
@@ -225,7 +226,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
   },
 
-
+ 
   login: async (email: string, password: string) => {
     set({ isLoading: true, error: null });
     try {
@@ -251,7 +252,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
   },
 
-
+ 
   register: async (data) => {
     set({ isLoading: true, error: null });
     try {
@@ -277,7 +278,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
   },
 
- 
+
   fetchProfile: async () => {
     set({ isLoading: true });
     try {
@@ -288,6 +289,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
   },
 
+ 
   logout: () => {
     authApi.logout();
     set({

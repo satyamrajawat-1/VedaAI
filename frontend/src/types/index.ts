@@ -14,7 +14,7 @@ export interface QuestionTypeConfig {
   numberOfQuestions: number;
   marksPerQuestion: number;
 }
-
+                                
 export type AssignmentStatus = "draft" | "assigned" | "completed" | "overdue";
 
 export interface Assignment {
@@ -69,12 +69,14 @@ export interface AnswerKeyItem {
   answer: string;
 }
 
+
 export interface CreateAssignmentFormData {
   file: File | null;
   dueDate: string;
   questionTypes: QuestionTypeConfig[];
   additionalInfo: string;
 }
+
 
 export interface User {
   _id: string;
@@ -86,11 +88,13 @@ export interface User {
   role: "teacher" | "admin";
 }
 
+
 export interface ApiResponse<T> {
   success: boolean;
   data: T;
   message?: string;
 }
+
 
 export interface NavItem {
   label: string;

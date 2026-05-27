@@ -12,21 +12,21 @@ export default function DashboardLayout({
 }) {
   return (
     <div className="min-h-screen bg-neutral-50">
-     
+      
       <Sidebar />
 
       
       <div className="md:ml-[var(--sidebar-width)] flex flex-col min-h-screen">
-       
+        {/* Topbar */}
         <Topbar showBack breadcrumb="Assignment" />
 
-        
+       
         <main className="flex-1 pb-[var(--mobile-nav-height)] md:pb-0">
           {children}
         </main>
       </div>
 
-    
+     
       <MobileNav />
     </div>
   );

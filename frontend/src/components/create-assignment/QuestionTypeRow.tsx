@@ -40,7 +40,7 @@ export default function QuestionTypeRow({
 
   return (
     <div className="flex flex-col md:flex-row items-start md:items-end gap-3 md:gap-4 p-4 rounded-xl border border-neutral-100 bg-neutral-50/50">
-      
+    
       <div className="flex-1 w-full md:w-auto">
         <Dropdown
           options={availableOptions}
@@ -52,7 +52,7 @@ export default function QuestionTypeRow({
         />
       </div>
 
-      
+     
       <button
         type="button"
         onClick={onRemove}
@@ -62,9 +62,9 @@ export default function QuestionTypeRow({
         <X size={14} className="text-neutral-400" />
       </button>
 
-      
+     
       <div className="flex items-end gap-3 md:gap-4">
-       
+        
         <button
           type="button"
           onClick={onRemove}

@@ -50,7 +50,7 @@ export default function AssignmentsPage() {
         </div>
       )}
 
-     
+    
       {error && (
         <div className="mb-4 p-4 rounded-xl bg-red-50 border border-red-200">
           <p className="text-sm text-red-600">{error}</p>
@@ -60,10 +60,10 @@ export default function AssignmentsPage() {
       
       {isEmpty && !error && <EmptyState />}
 
-      
+    
       {!isLoading && assignments.length > 0 && (
         <>
-          
+          {/* Page header */}
           <div className="mb-6">
             <h1 className="text-xl md:text-2xl font-bold text-neutral-900">
               Assignments

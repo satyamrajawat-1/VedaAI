@@ -165,7 +165,7 @@ export default function AssignmentOutputPage() {
         </p>
       </div>
 
-     
+
       <div className="mb-6">
         <Button
           variant="outline"
@@ -179,11 +179,9 @@ export default function AssignmentOutputPage() {
       
       <QuestionPaper paper={paper} />
 
-      
       <AnswerKey answers={paper.answerKey} />
 
       
-      <div className="mt-8">
         <Button
           variant="ghost"
           onClick={() => router.push("/assignments")}

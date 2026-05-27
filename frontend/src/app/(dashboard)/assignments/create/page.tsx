@@ -53,7 +53,7 @@ export default function CreateAssignmentPage() {
 
   return (
     <div className="p-4 md:p-6 lg:p-8 max-w-3xl mx-auto w-full page-enter">
-      {/* Header */}
+    
       <div className="mb-2">
         <h1 className="text-xl md:text-2xl font-bold text-neutral-900">
           Create Assignment
@@ -85,7 +85,7 @@ export default function CreateAssignmentPage() {
             </p>
           </div>
 
-          
+        
           <FileUpload
             onFileSelect={(file) => setFormFile(file)}
             selectedFile={formData.file}
@@ -140,7 +140,7 @@ export default function CreateAssignmentPage() {
             </p>
           </div>
 
-         
+        
           <div className="space-y-4">
             <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-100">
               <h4 className="text-sm font-medium text-neutral-500 mb-2">

@@ -69,7 +69,7 @@ export default function AssignmentCard({
         </div>
       </div>
 
-      
+     
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-neutral-500">
         <span>
           <span className="text-neutral-400">Assigned on :</span>{" "}

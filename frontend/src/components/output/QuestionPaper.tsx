@@ -25,7 +25,6 @@ export default function QuestionPaper({ paper }: QuestionPaperProps) {
   return (
     <div className="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden">
       
-      
       <div className="p-6 md:p-10 lg:p-12 max-w-[800px] mx-auto">
         
         <div className="text-center mb-8 pb-6 border-b-2 border-neutral-900">
@@ -40,6 +39,7 @@ export default function QuestionPaper({ paper }: QuestionPaperProps) {
           </p>
         </div>
 
+       
         <div className="flex items-center justify-between mb-4">
           <p className="text-sm text-neutral-700">
             <span className="font-semibold">Time Allowed:</span>{" "}
@@ -51,7 +51,7 @@ export default function QuestionPaper({ paper }: QuestionPaperProps) {
           </p>
         </div>
 
-      
+       
         {paper.instructions.length > 0 && (
           <div className="mb-6">
             {paper.instructions.map((inst, i) => (
@@ -62,7 +62,7 @@ export default function QuestionPaper({ paper }: QuestionPaperProps) {
           </div>
         )}
 
-        
+       
         <div className="mb-8 space-y-2">
           <p className="text-sm text-neutral-700">
             Name: <span className="inline-block w-48 border-b border-neutral-300" />
@@ -75,7 +75,7 @@ export default function QuestionPaper({ paper }: QuestionPaperProps) {
           </p>
         </div>
 
-        
+       
         {paper.sections.map((section, sIndex) => (
           <div key={sIndex} className="mb-8">
             <h2 className="text-center text-lg font-bold text-neutral-900 mb-2">

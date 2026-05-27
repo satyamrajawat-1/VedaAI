@@ -41,7 +41,7 @@ export default function Sidebar() {
         </span>
       </div>
 
-      
+     
       <div className="px-4 mb-4">
         <Link href="/assignments/create">
           <button className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-brand-primary text-white text-sm font-medium hover:bg-brand-primary-hover transition-colors duration-200 active:scale-[0.98] cursor-pointer border-2 border-brand-primary-hover">
@@ -51,7 +51,7 @@ export default function Sidebar() {
         </Link>
       </div>
 
-      
+     
       <nav className="flex-1 px-3 space-y-0.5 overflow-y-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -106,7 +106,7 @@ export default function Sidebar() {
         </Link>
       </div>
 
-      
+     
       <div className="px-4 py-4 border-t border-sidebar-border">
         <div className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-sidebar-active transition-colors cursor-pointer">
           <div className="w-9 h-9 rounded-full bg-neutral-300 flex items-center justify-center overflow-hidden">

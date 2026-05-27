@@ -52,7 +52,7 @@ export default function QuestionTypeSelector({
     <div className="space-y-4">
       <h3 className="text-sm font-semibold text-neutral-900">Question Type</h3>
 
-      {/* Question type rows */}
+      
       <div className="space-y-3">
         {questionTypes.map((qt, index) => (
           <QuestionTypeRow
@@ -77,7 +77,7 @@ export default function QuestionTypeSelector({
         Add Question Type
       </button>
 
-      
+     
       <div className="flex justify-end gap-6 pt-2 border-t border-neutral-100">
         <span className="text-sm text-neutral-600">
           Total Questions :{" "}

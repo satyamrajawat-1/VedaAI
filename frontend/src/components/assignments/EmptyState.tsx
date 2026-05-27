@@ -6,7 +6,7 @@ import { Search } from "lucide-react";
 export default function EmptyState() {
   return (
     <div className="flex flex-col items-center justify-center py-16 px-6 page-enter">
-      
+      {/* Illustration */}
       <div className="relative w-48 h-48 mb-8">
         <svg
           viewBox="0 0 200 200"
@@ -14,7 +14,7 @@ export default function EmptyState() {
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-full"
         >
-          
+         
           <rect
             x="55"
             y="30"
@@ -25,7 +25,7 @@ export default function EmptyState() {
             stroke="#e5e5e5"
             strokeWidth="2"
           />
-          
+        
           <line
             x1="75"
             y1="60"
@@ -63,7 +63,7 @@ export default function EmptyState() {
             strokeLinecap="round"
           />
 
-          
+        
           <circle
             cx="130"
             cy="110"
@@ -109,7 +109,7 @@ export default function EmptyState() {
         </svg>
       </div>
 
-      
+     
       <h3 className="text-lg font-semibold text-neutral-900 mb-2">
         No assignments yet
       </h3>
@@ -119,7 +119,7 @@ export default function EmptyState() {
         assist with grading.
       </p>
 
-      {/* CTA */}
+    
       <a
         href="/assignments/create"
         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition-colors duration-200 active:scale-[0.98]"

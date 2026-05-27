@@ -10,7 +10,7 @@ const api = axios.create({
   },
 });
 
-// Request interceptor — attach auth token
+
 api.interceptors.request.use(
   (config) => {
     if (typeof window !== "undefined") {
@@ -24,7 +24,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Response interceptor — handle errors globally
+
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -32,7 +32,7 @@ api.interceptors.response.use(
       const { status } = error.response;
 
       if (status === 401) {
-        // Unauthorized — clear token and redirect to login
+     
         if (typeof window !== "undefined") {
           localStorage.removeItem("vedaai_token");
           window.location.href = "/login";
@@ -50,18 +50,14 @@ api.interceptors.response.use(
 
 export default api;
 
-// ============================================
-// API Service Functions
-// ============================================
 
-// --- Assignments ---
 export const assignmentApi = {
   getAll: () => api.get("/assignments"),
   getById: (id: string) => api.get(`/assignments/${id}`),
   create: (data: FormData) =>
     api.post("/assignments", data, {
       headers: { "Content-Type": "multipart/form-data" },
-      timeout: 120000, // 2 min for AI generation
+      timeout: 120000, 
     }),
   update: (id: string, data: Record<string, unknown>) =>
     api.put(`/assignments/${id}`, data),
@@ -72,7 +68,7 @@ export const assignmentApi = {
     }),
 };
 
-// --- Auth ---
+
 export const authApi = {
   login: (data: { email: string; password: string }) =>
     api.post("/auth/login", data),
