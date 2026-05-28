@@ -1,37 +1,15 @@
 import axios from "axios";
 
-const getBaseUrl = () => {
-  if (process.env.NEXT_PUBLIC_API_URL) return process.env.NEXT_PUBLIC_API_URL;
-  if (typeof window !== "undefined" && window.location.hostname !== "localhost") {
-    return "https://vedaai-v3me.onrender.com/api/v1";
-  }
-  return "http://localhost:8000/api/v1";
-};
-
-const API_BASE_URL = getBaseUrl();
+const PRODUCTION_API = "https://vedaai-v3me.onrender.com/api/v1";
+const LOCAL_API = "http://localhost:8000/api/v1";
 
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "https://vedaai-v3me.onrender.com/api/v1",
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
   },
 });
-
-
-api.interceptors.request.use(
-  (config) => {
-    if (typeof window !== "undefined") {
-      const token = localStorage.getItem("vedaai_token");
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-    }
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
-
 
 api.interceptors.response.use(
   (response) => response,

@@ -10,17 +10,10 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-
-const corsOrigin = process.env.CORS_ORIGIN || "http://localhost:3000";
-
 app.use(
   cors({
-    origin: corsOrigin === "*"
-      ? "*"
-      : corsOrigin.includes(",")
-        ? corsOrigin.split(",").map((o) => o.trim())
-        : corsOrigin,
-    credentials: corsOrigin !== "*",
+    origin: true,
+    credentials: true,
   })
 );
 app.use(express.json({ limit: "10mb" }));
