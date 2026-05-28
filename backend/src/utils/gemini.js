@@ -1,8 +1,15 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import fs from "fs";
 import path from "path";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+let _ai = null;
+function getAI() {
+  if (!_ai) {
+    _ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  }
+  return _ai;
+}
 
 /**
  * Generate a question paper using Gemini AI
@@ -19,9 +26,8 @@ export async function generateQuestionPaper({
   additionalInfo,
   user,
 }) {
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+  const ai = getAI();
 
-  
   const questionTypesDesc = questionTypes
     .map(
       (qt) =>
@@ -90,9 +96,9 @@ ${additionalInfo ? `**Additional Instructions:** ${additionalInfo}` : ""}
 Return ONLY the JSON object, no markdown formatting, no code blocks, no additional text.`;
 
   try {
-    let result;
+    let contents = [];
 
-    
+   
     if (materialPath && fs.existsSync(materialPath)) {
       const ext = path.extname(materialPath).toLowerCase();
       const mimeTypes = {
@@ -107,20 +113,26 @@ Return ONLY the JSON object, no markdown formatting, no code blocks, no addition
       const fileData = fs.readFileSync(materialPath);
       const base64Data = fileData.toString("base64");
 
-      const filePart = {
-        inlineData: {
-          data: base64Data,
-          mimeType,
+      contents = [
+        {
+          inlineData: {
+            data: base64Data,
+            mimeType,
+          },
         },
-      };
-
-      result = await model.generateContent([prompt, filePart]);
+        prompt,
+      ];
     } else {
-     
-      result = await model.generateContent(prompt);
+    
+      contents = prompt;
     }
 
-    const responseText = result.response.text();
+    const result = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents,
+    });
+
+    const responseText = result.text;
 
    
     let cleanedText = responseText
@@ -128,7 +140,7 @@ Return ONLY the JSON object, no markdown formatting, no code blocks, no addition
       .replace(/```\n?/g, "")
       .trim();
 
-   
+    
     const paperData = JSON.parse(cleanedText);
 
     return paperData;

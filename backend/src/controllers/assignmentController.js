@@ -73,15 +73,22 @@ export const createAssignment = async (req, res) => {
   
     let generatedPaper = null;
     try {
+      console.log("Starting AI generation...");
+      console.log("  materialPath:", materialPath || "(none)");
+      console.log("  questionTypes:", JSON.stringify(parsedQuestionTypes));
+      console.log("  additionalInfo:", (additionalInfo || "").substring(0, 100));
+      console.log("  user.schoolName:", req.user.schoolName);
+      
       generatedPaper = await generateQuestionPaper({
         materialPath,
         questionTypes: parsedQuestionTypes,
         additionalInfo: additionalInfo || "",
         user: req.user,
       });
+      console.log("AI generation succeeded! Subject:", generatedPaper?.subject);
     } catch (aiError) {
       console.error("AI generation error:", aiError.message);
-      
+      console.error("   Stack:", aiError.stack?.split("\n").slice(0, 3).join("\n"));
     }
 
    

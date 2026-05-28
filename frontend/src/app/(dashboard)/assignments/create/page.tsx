@@ -36,7 +36,7 @@ export default function CreateAssignmentPage() {
       const assignmentId = await createAssignment();
       if (assignmentId) {
         resetForm();
-        router.push(`/assignments/output`);
+        router.push(`/assignments/${assignmentId}/output`);
       }
     }
   };
